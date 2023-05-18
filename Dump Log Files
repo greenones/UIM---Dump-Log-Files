@@ -1,0 +1,45 @@
+
+-- List of probe log file paths
+from_file_path_nas = "E:\\Program Files (x86)\\Nimsoft\\probes\\service\\nas\\"
+from_file_path_mm = "E:\\Program Files (x86)\\Nimsoft\\probes\\service\\maintenance_mode\\"
+from_file_path_co = "E:\\Program Files (x86)\\Nimsoft\\robot\\"
+ 
+-- List of probe log file names (without extensions)
+file1 = "nas"
+file2 = "_nas"
+file3= "maintenance_mode"
+file4= "_maintenance_mode"
+file5 = "controller"
+ 
+-- Location of where to store the files (you must create this folder)
+to_file_path = "E:\\Log Archive\\"
+ 
+-- timestamp to be used as part of the log file extension
+ts = timestamp.now()
+print(ts)
+ 
+print("From:")
+print(from_file_path_nas..file1..".log")
+print(from_file_path_nas..file2..".log")
+print(from_file_path_mm..file3..".log")
+print(from_file_path_mm..file4..".log")
+print(from_file_path_co..file5..".log")
+ 
+print("To:")
+print(to_file_path..file1.."-"..ts..".log")
+print(to_file_path..file2.."-"..ts..".log")
+print(to_file_path..file3.."-"..ts..".log")
+print(to_file_path..file4.."-"..ts..".log")
+print(to_file_path..file5.."-"..ts..".log")
+ 
+-- Copy the log files to the folder you created
+rc = file.copy (from_file_path_nas..file1..".log",to_file_path..file1.."-"..ts..".log")
+print(tostring(rc))
+rc = file.copy (from_file_path_nas..file2..".log",to_file_path..file2.."-"..ts..".log")
+print(tostring(rc))
+rc = file.copy (from_file_path_mm..file3..".log",to_file_path..file3.."-"..ts..".log")
+print(tostring(rc))
+rc = file.copy (from_file_path_mm..file4..".log",to_file_path..file4.."-"..ts..".log")
+print(tostring(rc))
+rc = file.copy (from_file_path_co..file5..".log",to_file_path..file5.."-"..ts..".log")
+print(tostring(rc))
